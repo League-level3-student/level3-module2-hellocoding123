@@ -22,9 +22,18 @@ public class BogoSorter extends Sorter {
     void sort(int[] array, SortingVisualizer display) {
     	
     	boolean sorted = false;
+    	int temp;
+    	int rand;
+    	int rand2;
+    	Random r = new Random();
     	
     	while(!isSorted(array)) {
-    		int rand = (int)Math.random()*(array.length - 1);
+    		rand = r.nextInt(array.length);
+    		rand2 = r.nextInt(array.length);
+    		temp = array[rand];
+    		array[rand] = array[rand2];
+    		array[rand2] = temp;
+    		display.updateDisplay();
     	}
     }
     
