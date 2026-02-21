@@ -96,7 +96,7 @@ public class Algorithms {
 		}
 	}
 //fix this:
-	public static void sortScores(List<Double> results) {
+	public static List<Double> sortScores(List<Double> results) {
 		// TODO Auto-generated method stub
 		List<Double> sorted = results;
 
@@ -116,7 +116,7 @@ public class Algorithms {
 			t++;
 		}
 		
-	
+		return sorted;
 
 	}
 
@@ -129,4 +129,71 @@ public class Algorithms {
 
 		return true;
 	}
+
+	public static Object sortDNA(List<String> unsortedSequences) {
+		List<String> sorted = unsortedSequences;
+
+		int swaps;
+		String temp;
+		int t = 0;
+
+		while (!(isSorted2(sorted))) {
+			for (int i = 0; i < sorted.size() - 1 - t; i++) {
+				if (sorted.get(i).length() > sorted.get(i + 1).length()) {
+					temp = sorted.get(i);
+					sorted.set(i, sorted.get(i + 1));
+					sorted.set(i + 1, temp);
+				}
+			}
+
+			t++;
+		}
+		
+		return sorted;
+
+	}
+
+	public static boolean isSorted2(List<String> array) {
+		for (int i = 0; i < array.size() - 1; i++) {
+			if (!(array.get(i).length() <= array.get(i + 1).length())) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	public static List<String> sortWords(List<String> words) {
+		List<String> sorted = words;
+
+		int swaps;
+		String temp;
+		int t = 0;
+
+		while (!(isSorted2(sorted))) {
+			for (int i = 0; i < sorted.size() - 1 - t; i++) {
+				if (sorted.get(i).compareTo(sorted.get(i + 1)) < 0) {
+					temp = sorted.get(i);
+					sorted.set(i, sorted.get(i + 1));
+					sorted.set(i + 1, temp);
+				}
+			}
+
+			t++;
+		}
+		
+		return sorted;
+
+	}
+
+	public static boolean isSorted3(List<String> array) {
+		for (int i = 0; i < array.size() - 1; i++) {
+			if (!(array.get(i).length() <= array.get(i + 1).length())) {
+				return false;
+			}
+		}
+
+		return true;
+	}
+
 }
